@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Link, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 // components to import
 import HomePage from '../HomePage/HomePage';
 import Feeling from '../Feeling/Feeling';
@@ -19,9 +20,14 @@ class App extends Component {
         <Route path="/feeling" component={Feeling}></Route>
         <br/>
       </div>
+      <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </Router>
     );
   }
 }
 
-export default App;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+}
+
+export default connect(mapReduxStateToProps)(App);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Feeling extends Component {
     state = {
@@ -15,6 +16,7 @@ class Feeling extends Component {
     handleDispatch = () => {
         this.props.dispatch({type: 'FEELING', payload: this.state.feeling})
     }
+
   render() {
     return (
       <div className="Feeling">
@@ -27,4 +29,4 @@ class Feeling extends Component {
   }
 }
 
-export default Feeling;
+export default connect()(Feeling);
