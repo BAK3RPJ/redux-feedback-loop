@@ -32,8 +32,6 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <Route path="/" exact component={HomePage}></Route>
-        {/* <Route path="/feeling" component={Feeling}></Route> */}
-        {/* <Route path="/understanding" component={Understanding}></Route> */}
         <Route path="/feeling" render={() => <Form formType='FEELING' nextPage='/understanding' formHeader='How are you feeling today?' />}></Route>
         <Route path="/understanding" render={() => <Form formType='UNDERSTANDING' nextPage='/supported' formHeader='How well are you understanding the content?' />}></Route>
         <Route path="/supported" render={() => <Form formType='SUPPORTED' nextPage='/comments' formHeader='How well are you being supported?' />}></Route>
