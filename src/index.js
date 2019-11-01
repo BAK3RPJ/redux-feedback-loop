@@ -7,16 +7,22 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const feelingReducer = (state=0, action) => {
+const feedbackReducer = (state=0, action) => {
     if (action.type === 'FEELING') {
-        return action.payload
+        return {...state, feeling: action.payload}
+    } else if (action.type === 'UNDERSTANDING') {
+        return {...state, understanding: action.payload}
+    } else if (action.type === 'SUPPORTED') {
+        return {...state, supported: action.payload}
+    } else if (action.type === 'COMMENTS') {
+        return {...state, comments: action.payload}
     }
     return state
 }
 
 const storeInstance = createStore(
     combineReducers({
-        feelingReducer,
+        feedbackReducer,
     })
 );
 
