@@ -4,6 +4,7 @@ import './App.css';
 import {HashRouter as Router, Link, Route} from 'react-router-dom';
 // components to import
 import HomePage from '../HomePage/HomePage';
+import Feeling from '../Feeling/Feeling';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <Route path="/" exact component={HomePage}></Route>
+        <Route path="/feeling" component={Feeling}></Route>
         <br/>
       </div>
       </Router>
