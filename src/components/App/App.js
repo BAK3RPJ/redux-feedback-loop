@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 // components to import
 import HomePage from '../HomePage/HomePage';
 import Form from '../Form/Form';
-// import Feeling from '../Feeling/Feeling';
-// import Understanding from '../Understanding/Understanding';
+import Review from '../Review/Review';
 
 class App extends Component {
 
@@ -36,6 +35,7 @@ class App extends Component {
         <Route path="/understanding" render={() => <Form formType='UNDERSTANDING' nextPage='/supported' formHeader='How well are you understanding the content?' />}></Route>
         <Route path="/supported" render={() => <Form formType='SUPPORTED' nextPage='/comments' formHeader='How well are you being supported?' />}></Route>
         <Route path="/comments" render={() => <Form formType='COMMENTS' nextPage='/review' formHeader='Any comments you want to leave?' />}></Route>
+        <Route path="/review" component={Review}></Route>
         <br/>
       </div>
       <pre>{JSON.stringify(this.props, null, 2)}</pre>

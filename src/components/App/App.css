@@ -17,3 +17,8 @@
   font-size: large;
 }
 
+.reviewResults {
+  display: flex;
+  justify-content: space-around;
+}
+
