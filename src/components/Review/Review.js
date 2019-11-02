@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import Swal from 'sweetalert2';
 
 class Review extends Component {
 
@@ -17,6 +18,13 @@ handlePost = () => {
     })
     .then((res) => {
         console.log('in POST', res);
+        Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          });
         this.props.history.push('/success');
     })
     .catch((err) => {
