@@ -17,6 +17,7 @@ handlePost = () => {
     })
     .then((res) => {
         console.log('in POST', res);
+        this.props.history.push('/success');
     })
     .catch((err) => {
         console.log('error in POST', err);

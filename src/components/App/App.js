@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import HomePage from '../HomePage/HomePage';
 import Form from '../Form/Form';
 import Review from '../Review/Review';
+import Success from '../Success/Success';
 
 class App extends Component {
 
@@ -36,6 +37,7 @@ class App extends Component {
         <Route path="/supported" render={() => <Form formType='SUPPORTED' nextPage='/comments' formHeader='How well are you being supported?' />}></Route>
         <Route path="/comments" render={() => <Form formType='COMMENTS' nextPage='/review' formHeader='Any comments you want to leave?' />}></Route>
         <Route path="/review" component={Review}></Route>
+        <Route path="/success" component={Success}></Route>
         <br/>
       </div>
       <pre>{JSON.stringify(this.props, null, 2)}</pre>
