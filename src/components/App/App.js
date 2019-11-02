@@ -32,10 +32,10 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <Route path="/" exact component={HomePage}></Route>
-        <Route path="/feeling" render={() => <Form formType='FEELING' nextPage='/understanding' formHeader='How are you feeling today?' />}></Route>
-        <Route path="/understanding" render={() => <Form formType='UNDERSTANDING' nextPage='/supported' formHeader='How well are you understanding the content?' />}></Route>
-        <Route path="/supported" render={() => <Form formType='SUPPORTED' nextPage='/comments' formHeader='How well are you being supported?' />}></Route>
-        <Route path="/comments" render={() => <Form formType='COMMENTS' nextPage='/review' formHeader='Any comments you want to leave?' />}></Route>
+        <Route path="/feeling" render={() => <Form formType='FEELING' prevPage='/' nextPage='/understanding' formHeader='How are you feeling today?' />}></Route>
+        <Route path="/understanding" render={() => <Form formType='UNDERSTANDING' prevPage='/feeling' nextPage='/supported' formHeader='How well are you understanding the content?' />}></Route>
+        <Route path="/supported" render={() => <Form formType='SUPPORTED' prevPage='/understanding' nextPage='/comments' formHeader='How well are you being supported?' />}></Route>
+        <Route path="/comments" render={() => <Form formType='COMMENTS' prevPage='/supported' nextPage='/review' formHeader='Any comments you want to leave?' />}></Route>
         <Route path="/review" component={Review}></Route>
         <Route path="/success" component={Success}></Route>
         <br/>

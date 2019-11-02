@@ -35,6 +35,7 @@ class Form extends Component {
         <h1>{this.props.formHeader}</h1>
         <h4>On a scale from 1 to 5</h4>
         <form onSubmit={this.handleDispatch}>
+            <button type="button" onClick={() => this.props.history.push(this.props.prevPage)}>Prev</button>
             {this.props.formType === 'COMMENTS' ? 
             <textarea placeholder='Tell us more' onChange={(event) => this.handleInputChange(event)}/> :
             <input type="number" onChange={(event) => this.handleInputChange(event)}/>
