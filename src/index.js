@@ -13,7 +13,7 @@ const feedbackReducer = (state=0, action) => {
     } else if (action.type === 'UNDERSTANDING') {
         return {...state, understanding: action.payload}
     } else if (action.type === 'SUPPORTED') {
-        return {...state, supported: action.payload}
+        return {...state, support: action.payload}
     } else if (action.type === 'COMMENTS') {
         return {...state, comments: action.payload}
     }
