@@ -27,6 +27,22 @@ getFeedbackData = () => {
     })
 }
 
+deleteFeedbackEntry = (id) => {
+    console.log(id);
+    axios({
+        method: 'DELETE',
+        url: `/feedback/${id}`
+    })
+    .then((res) => {
+        console.log(res);
+        this.getFeedbackData();
+    })
+    .catch((err) => {
+        console.log('error in delete', err);
+    })
+}
+
+
   render() {
     return (
       <div className="Success">
@@ -42,7 +58,7 @@ getFeedbackData = () => {
                 </tr>
             </thead>
             <tbody>
-                {this.state.results.map(result => (<tr key={result.id}><td>{result.id}</td><td>{result.feeling}</td><td>{result.understanding}</td><td>{result.support}</td><td>{result.comments}</td></tr>))}
+                {this.state.results.map(result => (<tr key={result.id}><td>{result.id}</td><td>{result.feeling}</td><td>{result.understanding}</td><td>{result.support}</td><td>{result.comments}</td><td><button onClick = {() => this.deleteFeedbackEntry(result.id)}>DELETE</button></td></tr>))}
             </tbody>
         </table>
       </div> 
