@@ -11,18 +11,6 @@ import Admin from '../Admin/Admin';
 
 class App extends Component {
 
-  state= {
-    feeling: '',
-    understanding: ''
-  }
-
-  handleInputChange = (event, propertyName) => {
-    this.setState({
-        [propertyName]: event.target.value
-    })
-    console.log(this.state);
-}
-
   render() {
     return (
       <Router>

@@ -1,0 +1,8 @@
+.flagged {
+    color: green;
+}
+
+.notFlagged {
+    color: red;
+    font-weight: bold;
+}

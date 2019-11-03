@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import './Admin.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Button from '@material-ui/core/Button';
 
 class Admin extends Component {
 
@@ -91,14 +93,16 @@ flagFeedbackEntry = (id) => {
             </thead>
             <tbody>
                 {this.state.results.map(result => (
-                <tr key={result.id}>
+                <tr key={result.id} 
+                className={result.flagged ? "flagged" : "notFlagged"}
+                >
                     <td>{result.id}</td>
                     <td>{result.feeling}</td>
                     <td>{result.understanding}</td>
                     <td>{result.support}</td>
                     <td>{result.comments}</td>
-                    <td><button onClick = {() => this.deleteFeedbackEntry(result.id)}>DELETE</button></td>
-                    <td><button onClick = {() => this.flagFeedbackEntry(result.id)}>FLAG</button></td></tr>))}
+                    <td><Button onClick = {() => this.deleteFeedbackEntry(result.id)} variant="contained" color="secondary">DELETE</Button></td>
+                    <td><Button onClick = {() => this.flagFeedbackEntry(result.id)} variant="outlined" color="secondary">FLAG</Button></td></tr>))}
             </tbody>
         </table>
       </div> 

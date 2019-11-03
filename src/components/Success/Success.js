@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class Success extends Component {
 
     handleClearFeedbackReducer = () => {
-        this.props.dispatch({type: 'CLEAR_FEEDBACK'})
+        this.props.dispatch({type: 'CLEAR_FEEDBACK'});
+        this.props.history.push('/');
     }
 
   render() {
@@ -13,7 +14,7 @@ class Success extends Component {
       <div className="Success">
         <h4>Submission Success!</h4>
         <p> Your feedback has successfully been stored in out database, and will be reviewed shortly. Go back to the home page to complete another survey!</p>
-        <Link to='/'><button onClick={this.handleClearFeedbackReducer} type="button">Go Home</button></Link>
+        <Button onClick={this.handleClearFeedbackReducer} type="button" variant="outlined" color="primary">Go Home</Button>
       </div>
     );
   }

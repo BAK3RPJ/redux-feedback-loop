@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import Button from '@material-ui/core/Button';
+
 
 class Form extends Component {
     state = {
@@ -35,12 +37,12 @@ class Form extends Component {
         <h1>{this.props.formHeader}</h1>
         <h4>On a scale from 1 to 5</h4>
         <form onSubmit={this.handleDispatch}>
-            <button type="button" onClick={() => this.props.history.push(this.props.prevPage)}>Prev</button>
+            <Button type="button" onClick={() => this.props.history.push(this.props.prevPage)} variant="outlined" color="primary">Prev</Button>
             {this.props.formType === 'COMMENTS' ? 
             <textarea placeholder='Tell us more' onChange={(event) => this.handleInputChange(event)}/> :
             <input type="number" onChange={(event) => this.handleInputChange(event)}/>
             }
-            <button type="submit" onClick={this.handleDispatch}>Next</button>
+            <Button type="submit" onClick={this.handleDispatch} variant="outlined" color="primary">Next</Button>
         </form>
       </div>
     );
