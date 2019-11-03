@@ -10,11 +10,11 @@ class Admin extends Component {
         results: []
     }
 
-componentDidMount() {
+componentDidMount() { 
     this.getFeedbackData();
 }
 
-getFeedbackData = () => {
+getFeedbackData = () => { // GET request for information in feedback table
     axios({
         method: 'GET',
         url: '/feedback'
@@ -30,9 +30,9 @@ getFeedbackData = () => {
     })
 }
 
-deleteFeedbackEntry = (id) => {
+deleteFeedbackEntry = (id) => { // DELETE request for chosen entry from feedback table
     console.log(id);
-    Swal.fire({
+    Swal.fire({ // Sweet Alert confirmation for entry deletion
         title: 'Are you sure you want to delete this entry?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -62,7 +62,7 @@ deleteFeedbackEntry = (id) => {
       })
 }
 
-flagFeedbackEntry = (id) => {
+flagFeedbackEntry = (id) => { // flag entry PUT request to feedback table
     console.log(id);
     axios({
         method: 'PUT',
@@ -94,7 +94,7 @@ flagFeedbackEntry = (id) => {
             <tbody>
                 {this.state.results.map(result => (
                 <tr key={result.id} 
-                className={result.flagged ? "flagged" : "notFlagged"}
+                className={result.flagged ? "flagged" : "notFlagged"} // applies class for css styling to table row based on flagged status
                 >
                     <td>{result.id}</td>
                     <td>{result.feeling}</td>

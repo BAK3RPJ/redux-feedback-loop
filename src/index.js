@@ -7,7 +7,7 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const feedbackReducer = (state=0, action) => {
+const feedbackReducer = (state=0, action) => { // reducer properties updated on form submissions, and sent to server on review page submission
     if (action.type === 'FEELING') {
         return {...state, feeling: action.payload}
     } else if (action.type === 'UNDERSTANDING') {

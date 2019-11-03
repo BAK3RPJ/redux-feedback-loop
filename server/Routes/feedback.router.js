@@ -3,7 +3,7 @@ const router = express.Router();
 
 const pool = require('../modules/pool');
 
-// Get all feedback
+// Get all feedback for admin page
 router.get('/', (req, res) => {
   let queryText = 'SELECT id, feeling, understanding, support, comments, flagged FROM "feedback" ORDER BY id DESC;';
   pool.query(queryText).then(result => {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   });
 });
 
-
+// post feedback information from redux state on review page
 router.post('/',  (req, res) => {
   let feedback = req.body;
   console.log(`Adding feedback`, feedback);
@@ -33,6 +33,7 @@ router.post('/',  (req, res) => {
     });
 });
 
+// Delete intry from admin page
 router.delete('/:id', (req, res) => {
   let queryText = `DELETE FROM feedback WHERE id = $1;`;
   pool.query(queryText, [req.params.id])
@@ -45,6 +46,7 @@ router.delete('/:id', (req, res) => {
   })
 })
 
+// Flag entry from admin page
 router.put('/:id', (req, res) => {
   let queryText = `UPDATE feedback SET flagged = NOT flagged WHERE id = $1;`;
   pool.query(queryText, [req.params.id])
