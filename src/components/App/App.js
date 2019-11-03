@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
-import {HashRouter as Router, Link, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 // components to import
 import HomePage from '../HomePage/HomePage';
 import Form from '../Form/Form';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
+import Admin from '../Admin/Admin';
 
 class App extends Component {
 
@@ -38,6 +38,7 @@ class App extends Component {
         <Route path="/comments" render={() => <Form formType='COMMENTS' prevPage='/supported' nextPage='/review' formHeader='Any comments you want to leave?' />}></Route>
         <Route path="/review" component={Review}></Route>
         <Route path="/success" component={Success}></Route>
+        <Route path="/admin" component={Admin}></Route>
         <br/>
       </div>
       <pre>{JSON.stringify(this.props, null, 2)}</pre>
