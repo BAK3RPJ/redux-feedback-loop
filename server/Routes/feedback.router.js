@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 // Get all feedback
 router.get('/', (req, res) => {
-  let queryText = 'SELECT id, feeling, understanding, support, comments FROM "feedback" ORDER BY id DESC;';
+  let queryText = 'SELECT id, feeling, understanding, support, comments, flagged FROM "feedback" ORDER BY id DESC;';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
     res.send(result.rows);
@@ -45,14 +45,14 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-router.delete('/:id', (req, res) => {
-  let queryText = `UPDATE FROM feedback WHERE id = $1;`;
+router.put('/:id', (req, res) => {
+  let queryText = `UPDATE feedback SET flagged = NOT flagged WHERE id = $1;`;
   pool.query(queryText, [req.params.id])
   .then(result => {
     res.sendStatus(200);
   })
   .catch(error => {
-    console.log('Error in DELETE in feedback', error);
+    console.log('Error in PUT in feedback', error);
     res.sendStatus(500);
   })
 })
