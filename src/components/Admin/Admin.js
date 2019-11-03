@@ -3,6 +3,10 @@ import axios from 'axios';
 
 class Admin extends Component {
 
+    state={
+        results: []
+    }
+
 componentDidMount() {
     this.getFeedbackData();
 }
@@ -14,6 +18,9 @@ getFeedbackData = () => {
     })
     .then((results) => {
         console.log(results);
+        this.setState({
+            results: results.data
+        })
     })
     .catch ((err) => {
         console.log('error in GET', err);
@@ -23,9 +30,21 @@ getFeedbackData = () => {
   render() {
     return (
       <div className="Success">
-        <h4>Submission Success!</h4>
-        <p> Your feedback has successfully been stored in out database, and will be reviewed shortly. Go back to the home page to complete another survey!</p>
-        {/* <Link to='/'><button onClick={this.handleClearFeedbackReducer} type="button">Go Home</button></Link> */}
+        <h4>Feedback Results</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feedback Id</th>
+                    <th>Feeling Rating</th>
+                    <th>Understanding Rating</th>
+                    <th>Support Rating</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {this.state.results.map(result => (<tr key={result.id}><td>{result.id}</td><td>{result.feeling}</td><td>{result.understanding}</td><td>{result.support}</td><td>{result.comments}</td></tr>))}
+            </tbody>
+        </table>
       </div> 
     );
   }
