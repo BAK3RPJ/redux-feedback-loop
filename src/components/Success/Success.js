@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 class Success extends Component {
 
     handleClearFeedbackReducer = () => {
-        this.props.dispatch({type: 'CLEAR_FEEDBACK'});
         this.props.history.push('/');
     }
 

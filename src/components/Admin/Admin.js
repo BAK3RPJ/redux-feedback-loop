@@ -40,8 +40,8 @@ deleteFeedbackEntry = (id) => { // DELETE request for chosen entry from feedback
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
+      }).then((result) => { 
+        if (result.value) {// runs only if the delete was confirmed
           Swal.fire(
             'Deleted!',
             'Your file has been deleted.',

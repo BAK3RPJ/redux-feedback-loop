@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import Swal from 'sweetalert2';
-// import Button from '@material-ui/core/Button'; //I have absolutely no idea why this doesnt work. This same import works in every other component.
+import Button from '@material-ui/core/Button'; //I have absolutely no idea why this doesn't work. This same import works in every other component.
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 class Review extends Component {
@@ -21,13 +21,14 @@ handlePost = () => {
     .then((res) => {
         console.log('in POST', res);
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             type: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
             timer: 1500
           });
         this.props.history.push('/success');
+        this.props.dispatch({type: 'CLEAR_FEEDBACK'});
     })
     .catch((err) => {
         console.log('error in POST', err);
@@ -45,7 +46,7 @@ handlePost = () => {
               <h6>How supported you feel: {this.props.feedbackReducer.support}</h6>
               <h6>Comments: {this.props.feedbackReducer.comments}</h6>
           </div>
-          <button onClick={this.handlePost}>Submit</button>
+          <Button onClick={this.handlePost} variant='outlined' color='primary'>Submit</Button>
       </div>
     );
   }

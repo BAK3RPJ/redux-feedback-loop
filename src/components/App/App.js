@@ -29,13 +29,14 @@ class App extends Component {
         <Route path="/admin" component={Admin}></Route>
         <br/>
       </div>
+      <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </Router>
     );
   }
 }
 
-// const mapReduxStateToProps = (reduxState) => {
-//   return reduxState;
-// }
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+}
 
-export default connect()(App);
+export default connect(mapReduxStateToProps)(App);

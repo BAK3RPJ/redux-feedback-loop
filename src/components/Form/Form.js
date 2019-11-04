@@ -46,6 +46,7 @@ class Form extends Component {
         <form onSubmit={this.handleDispatch} className="flexForm">
             <Button type="button" onClick={() => this.props.history.push(this.props.prevPage)} variant="outlined" color="primary">Prev</Button> 
             {this.props.formType === 'COMMENTS' ?
+            // will conditionally render for the comment page
             <TextField
             id="filled-textarea"
             label="Comments"
@@ -57,6 +58,7 @@ class Form extends Component {
             onChange={(event) => this.handleInputChange(event)}
           /> :
             <TextField
+            // conditionally renders for the input pages
               id="standard-number"
               label="Your Rating"
               type="number"
