@@ -1,0 +1,11 @@
+.flexForm {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.formText {
+    margin-left: 20px;
+}
