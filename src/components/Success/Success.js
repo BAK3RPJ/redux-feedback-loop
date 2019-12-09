@@ -12,7 +12,7 @@ class Success extends Component {
     return (
       <div className="Success">
         <h4>Submission Success!</h4>
-        <p> Your feedback has successfully been stored in out database, and will be reviewed shortly. Go back to the home page to complete another survey!</p>
+        <p> Your feedback has successfully been stored in our database, and will be reviewed shortly. Go back to the home page to complete another survey!</p>
         <Button onClick={this.handleClearFeedbackReducer} type="button" variant="outlined" color="primary">Go Home</Button>
       </div>
     );
