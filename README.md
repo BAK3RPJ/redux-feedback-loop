@@ -6,6 +6,8 @@ This project uses React, Redux, and Axios on the front end, alongside node and a
 
 The feedback table is then retrieved through an AXIOS GET request and the information is displayed on the DOM on the admin page. The admin can delete a chosen entry from the database by clicking on the delete button, or toggle the flagged status by clicking on flag. The flagged status is represented by text color of the entry.
 
+The Deployed application can be found [here](https://personal-feedback-form.herokuapp.com/).
+
 ## Usage
 
 1. Navigate from the start of the form by pressing proceed, and continuing through the prompts to the review page. 
@@ -50,5 +52,3 @@ If you have any questions, feel free to email me at bakerpj1992@gmail.com
 
 1. Use cards and styles to further progress the Material UI styling on the front end.
 2. Further style with Material UI, using components like inputs, and improving the form fields.
-3. Host the project on Heroku.
-4. 
