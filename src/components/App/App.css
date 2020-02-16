@@ -1,16 +1,41 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-header {
-  background-color: #033076;
-  min-height: 70px;
+/**** HEADLINE ****/
+#headline {
+  height: 40px;
+  background: #fafafa;
+  text-align: center;
+  line-height: 40px;
+}
+
+#headline h4 {
+  margin: 0px;
+}
+
+/**** Header Image ****/
+#header {
+  background-image: url(../../images/classroom.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 30%;
+  min-height: 100px;
   padding: 20px;
-  color: white;
+  color:#88906B;
+  position: relative;
 }
 
 .App-title {
-  font-size: 1.5em;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -60%);  
+  transform: translate(-50%, -60%);
+  text-shadow: black 4px 4px 4px;
 }
 
 .App-intro {
@@ -21,4 +46,5 @@
   display: flex;
   justify-content: space-around;
 }
+
 
