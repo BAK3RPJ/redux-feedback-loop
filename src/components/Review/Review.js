@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Swal from 'sweetalert2';
 import Button from '@material-ui/core/Button'; //I have absolutely no idea why this doesn't work. This same import works in every other component.
 import LinearProgress from '@material-ui/core/LinearProgress';
+import Stepper from '../Form/Stepper';
 
 class Review extends Component {
 
@@ -38,8 +39,8 @@ handlePost = () => {
   render() {
     return (
       <div className="Review">
+          <Stepper page='5'/>
           <h4>You have finished your feedback, and here are your results.</h4>
-          <LinearProgress variant="determinate" value={100} />
           <div className="reviewResults">
               <h6>Your feeling about today: {this.props.feedbackReducer.feeling}</h6>
               <h6>Your understanding: {this.props.feedbackReducer.understanding}</h6>

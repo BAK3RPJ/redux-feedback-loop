@@ -8,6 +8,7 @@ import './Form.css';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TextField from '@material-ui/core/TextField';
+import Stepper from './Stepper';
 
 
 class Form extends Component {
@@ -22,7 +23,7 @@ class Form extends Component {
         console.log(this.state);
     }
 
-    handleDispatch = (e) => { // Dispatches information to redux with form validation
+    handleDispatchNext = (e) => { // Dispatches information to redux with form validation
         if ( this.props.formType !== 'COMMENTS' && (this.state.input < 1 || this.state.input > 5 || this.state.input.length > 1)) {
             return Swal.fire({
                 type: 'error',
@@ -36,15 +37,24 @@ class Form extends Component {
         this.props.history.push(this.props.nextPage);
     }
 
+    handleDispatchPrev = (e) => {
+      e.preventDefault();
+      this.props.dispatch({type: 'PREVIOUS'});
+      this.props.history.push(this.props.prevPage);
+    }
+
   render() {
     return (
       <div className="Form">
+        <div id="stepperContainer">
+          <Stepper page={this.props.page}/>
+        </div>
         <h1>{this.props.formHeader}</h1>
         <h4>On a scale from 1 to 5</h4>
         <h6>Page {this.props.page}</h6>
-        <LinearProgress variant="determinate" value={(this.props.page - 1) * 25} />
+        {/* <LinearProgress variant="determinate" value={(this.props.page - 1) * 25} /> */}
         <form onSubmit={this.handleDispatch} className="flexForm">
-            <Button type="button" onClick={() => this.props.history.push(this.props.prevPage)} variant="outlined" color="primary">Prev</Button> 
+            <Button type="button" onClick={this.handleDispatchPrev} variant="outlined" color="primary">Prev</Button> 
             {this.props.formType === 'COMMENTS' ?
             // will conditionally render for the comment page
             <TextField
@@ -71,7 +81,7 @@ class Form extends Component {
               variant="filled"
             />
             }
-            <Button type="submit" onClick={this.handleDispatch} variant="outlined" color="primary">Next</Button>
+            <Button type="submit" onClick={this.handleDispatchNext} variant="outlined" color="primary">Next</Button>
         </form>
       </div>
     );
