@@ -10,8 +10,8 @@ The Deployed application can be found [here](https://personal-feedback-form.hero
 
 ## Screenshots
 ![](public/images/homepage.png)
-![](images/form.png)
-![](images/admin.png)
+![](public/images/form.png)
+![](public/images/admin.png)
 
 ### Prerequisites
 
