@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import './Admin.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import Button from '@material-ui/core/Button';
+import Table from './Table';
 
 class Admin extends Component {
-
     state={
         results: []
     }
@@ -79,32 +77,9 @@ flagFeedbackEntry = (id) => { // flag entry PUT request to feedback table
 
   render() {
     return (
-      <div className="Success">
+      <div className="admin">
         <h4>Feedback Results</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Feedback Id</th>
-                    <th>Feeling Rating</th>
-                    <th>Understanding Rating</th>
-                    <th>Support Rating</th>
-                    <th>Comments</th>
-                </tr>
-            </thead>
-            <tbody>
-                {this.state.results.map(result => (
-                <tr key={result.id} 
-                className={result.flagged ? "flagged" : "notFlagged"} // applies class for css styling to table row based on flagged status
-                >
-                    <td>{result.id}</td>
-                    <td>{result.feeling}</td>
-                    <td>{result.understanding}</td>
-                    <td>{result.support}</td>
-                    <td>{result.comments}</td>
-                    <td><Button onClick = {() => this.deleteFeedbackEntry(result.id)} variant="contained" color="secondary">DELETE</Button></td>
-                    <td><Button onClick = {() => this.flagFeedbackEntry(result.id)} variant="outlined" color="secondary">FLAG</Button></td></tr>))}
-            </tbody>
-        </table>
+        <Table results={this.state.results} deleteFeedbackEntry={this.deleteFeedbackEntry} flagFeedbackEntry={this.flagFeedbackEntry}/>
       </div> 
     );
   }

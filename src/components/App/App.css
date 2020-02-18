@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100vw;
   background: #f9f9f9;
 }
@@ -23,8 +24,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 30%;
-  min-height: 100px;
+  min-height: 30vh;
   padding: 20px;
   color:#f0f0f0;
   position: relative;
@@ -61,6 +61,18 @@
   padding: 50px;
 }
 
+@media (max-width: 1200px) {
+  .paperContainer {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .paperContainer {
+    width: 80%;
+  }
+}
+
 .paperContents {
   padding: 15px;
 }
@@ -81,14 +93,21 @@
   margin: auto;
 }
 
+/**** ADMIN ****/
+
+.admin {
+  width: 60%;
+  margin: auto;
+}
+
 @media (max-width : 1500px) {
-  .stepperContainer {
+  .stepperContainer, .admin {
     width: 85%;
   }
 }
 
 @media (max-width : 1000px) {
-  .stepperContainer {
+  .stepperContainer, .admin {
     width: 100%;
   }
 }
