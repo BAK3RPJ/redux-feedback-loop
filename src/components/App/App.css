@@ -39,8 +39,8 @@
   text-shadow: black -5px 2px 6px;
 }
 
-/**** HOMEPAGE ****/
-.homepage {
+/**** PAPER CONTAINER ****/
+.paperContainer {
   width: 30%;
   min-width: 200px;
   margin: auto;
@@ -61,25 +61,25 @@
   min-width: 350px;
 }
 
-#stepperContainer {
+.stepperContainer {
   width: 60%;
   margin: auto;
 }
 
 @media (max-width : 1500px) {
-  #stepperContainer {
+  .stepperContainer {
     width: 85%;
   }
 }
 
 @media (max-width : 1000px) {
-  #stepperContainer {
+  .stepperContainer {
     width: 100%;
   }
 }
 
 @media (max-width: 580px) {
-  #stepperContainer {
+  .stepperContainer {
     display: none;
   }
 }

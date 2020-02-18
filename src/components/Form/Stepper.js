@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -45,8 +44,4 @@ Stepper.propTypes = {
   classes: PropTypes.object,
 };
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
-
-export default connect(mapReduxStateToProps)(withStyles(styles)(ProgressStepper));
+export default withStyles(styles)(ProgressStepper);
