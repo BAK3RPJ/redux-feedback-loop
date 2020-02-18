@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // components to import
 import HomePage from '../HomePage/HomePage';
@@ -23,6 +23,10 @@ class App extends Component {
               <h1>Feedback!</h1>
               <h4><i>Don't forget it!</i></h4>
             </div>
+            <div id="links">
+                <Link to="/"><p>Home</p></Link>
+                <Link to="/admin"><p>Admin</p></Link>
+              </div>
           </div>
           <Route path="/" exact component={HomePage}></Route>
           <Route path="/feeling" render={() => <Form page='1' formType='FEELING' prevPage='/' nextPage='/understanding' formHeader='How are you feeling today?' />}></Route>
